@@ -1,0 +1,22 @@
+{
+  "name": "web-annotation",
+  "version": "0.0.1",
+  "manifest_version": 2,
+  "description": "webページに自分用の注釈を付けれるサービスです。",
+  "browser_action": {
+    "default_title": "Web Annotation",
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": [
+        "js/content_scripts.js"
+      ]
+    }
+  ],
+  "options_page": "option.html",
+  "permissions": [
+    "storage"
+  ]
+}
