@@ -3,20 +3,28 @@
   "version": "0.0.1",
   "manifest_version": 2,
   "description": "webページに自分用の注釈を付けれるサービスです。",
-  "browser_action": {
-    "default_title": "Web Annotation",
-    "default_popup": "popup.html"
+  "permissions": [
+    "contextMenus",
+    "http://*/*",
+    "https://*/*",
+    "storage",
+    "tabs"
+  ],
+  // コンテクストメニュー用
+  "background": {
+    "scripts": [
+      "js/background.js"
+    ]
   },
   "content_scripts": [
     {
-      "matches": ["https://*/*"],
-      "js": [
-        "js/content_scripts.js"
-      ]
+      "matches": [
+        "http://*/*",
+        "https://*/*"
+      ],
+      "js": ["js/content_scripts/common.js"]
     }
   ],
-  "options_page": "option.html",
-  "permissions": [
-    "storage"
-  ]
+  // オプションページ
+  "options_page": "option.html"
 }
