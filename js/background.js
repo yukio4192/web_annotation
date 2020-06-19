@@ -5,6 +5,7 @@ chrome.contextMenus.create({
   "contexts": ["all"],
   "onclick": function(info) {
     console.log('selected text', info.selectionText);
+    console.log('info', info);
     var selectedText = info.selectionText;
 
     // 取得するタブの条件
@@ -23,9 +24,11 @@ chrome.contextMenus.create({
       console.log('sending mesasge', message);
 
       console.log('currentTab', currentTab);
+      chrome.tabs.executeScript(currentTab.id, {file: "js/getDOM.js"});
 
       // 現在表示しているタブにメッセージを送る
       chrome.tabs.sendMessage(currentTab.id, message, function() {});
+
     });
   }
 });
