@@ -11,8 +11,11 @@ var targetNode = selObj.anchorNode.parentNode;
 var domCopy = selObj.getRangeAt(0).cloneContents();
 var selText = selObj.toString();
 console.log('selText', selText);
+
+// 選択したテキストを該当箇所のちょっと前に挿入
 var insertContent = `<h2>${selText}</h2>`;
 targetNode.insertAdjacentHTML('beforebegin', insertContent);
+
 
 // aタグからURLを取得して列挙
 // let links = domCopy.querySelectorAll('a');
