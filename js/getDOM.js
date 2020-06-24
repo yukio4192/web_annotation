@@ -13,12 +13,8 @@ var selText = selObj.toString();
 console.log('selText', selText);
 
 // 選択したテキストを該当箇所のちょっと前に挿入
-var insertContent = `<h2>${selText}</h2>`;
+var insertContent = `<span style="text-decoration: underline dotted blue;">${selText}</span>`;
 targetNode.insertAdjacentHTML('beforebegin', insertContent);
 
-
-// aタグからURLを取得して列挙
-// let links = domCopy.querySelectorAll('a');
-// for (const link of links) {
-//   console.log(link.getAttribute('href'));
-// }
+// 選択した箇所のNodeを削除
+targetNode.remove();
